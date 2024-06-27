@@ -21,7 +21,10 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* Necessary to enable the Emotion library "css" prop support */
+    "types": ["vite/client", "@emotion/react/types/css-prop"]
   },
   "include": ["src"]
 }
