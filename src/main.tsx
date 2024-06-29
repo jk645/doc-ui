@@ -10,7 +10,10 @@ import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { CssBaseline } from '@mui/material';
-import Root, { loader as rootLoader } from './routes/root';
+import Root, {
+  loader as rootLoader,
+  action as rootAction,
+} from './routes/root';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,7 @@ const router = createBrowserRouter([
       </>
     ),
     loader: rootLoader,
+    action: rootAction,
   },
 ]);
 

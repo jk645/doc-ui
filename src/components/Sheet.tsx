@@ -6,27 +6,30 @@ export default function Sheet(props: {sheet: SheetType}) {
   const sheet = props.sheet;
 
   return (
-    <form>
-      <table
-        css={css`
-          border: 1px solid;
-          border-collapse: collapse;
-        `}
-      >
-        <tbody>
-          {sheet.map((row, index) => {
-            return (
-              <tr key={index}>
-                {row.map((cellValue, index) => {
-                  return (
-                    <Cell key={index} cellValue={cellValue} />
-                  );
-                })}
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-    </form>
+    <table
+      css={css`
+        border: 1px solid;
+        border-collapse: collapse;
+      `}
+    >
+      <tbody>
+        {sheet.map((row, rowIndex) => {
+          return (
+            <tr key={rowIndex}>
+              {row.map((cellValue, colIndex) => {
+                return (
+                  <Cell
+                    key={colIndex}
+                    x={colIndex + 1}
+                    y={rowIndex + 1}
+                    cellValue={cellValue}
+                  />
+                );
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 };

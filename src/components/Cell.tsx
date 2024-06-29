@@ -1,22 +1,22 @@
 import { css } from '@emotion/react';
 
-export default function Cell(props: {cellValue: number|null}) {
+export default function Cell(props: {x: number, y: number, cellValue: number|null}) {
+  const x = props.x;
+  const y = props.y;
   const cellValue = props.cellValue;
-
-  // TODO: Whenever looses focus or press enter, that's when call action to update, but use way that don't change route
-
-  // !!! ACTUALLY, just realized, I need to wrap whole table with <Form> and use <input>'s within each cell, submit will handle form fields etc.
 
   return (
     <td
+      key={cellValue}
       css={css`
         border: 1px solid;
         padding: 0;
       `}
     >
       <input
+        name={`cell(${x},${y})`}
         type="number"
-        defaultValue={Number.isNaN(cellValue) ? '' : String(cellValue)}
+        defaultValue={String(cellValue)}
         css={css`
           appearance: none;
           background-color: transparent;
